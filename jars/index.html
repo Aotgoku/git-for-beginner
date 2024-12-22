@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Based AI Customer Care</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <!-- Full-Screen Video -->
+    <video id="animationVideo" class="video-player" autoplay loop muted>
+        <source src="sound.mp4" type="video/mp4">
+  35      Your browser does not support the video tag.
+    </video>
+
+    <!-- Download button (placed at the top right corner) -->
+    <a href="sound.mp4" download="sound.mp4" class="download-btn">
+        <span class="download-icon">📥</span> <!-- Download Icon -->
+    </a>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="content-container">
+            <h1>Voice-Based AI Customer Care</h1>
+            <p class="description">Your assistant is ready to help you with any query. Just speak!</p>
+            <button id="startButton" class="btn">Start Listening</button>
+            <p id="statusText" class="status">Click the button to start listening...</p>
+            <div id="loadingIndicator" class="loading-indicator">
+                <div class="loader"></div>
+            </div> 
+            <textarea id="outputText" placeholder="Your voice input will appear here..." readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Corrected Script Tag -->
+    <script src="scripts.js"></script>
+</body>
+</html>

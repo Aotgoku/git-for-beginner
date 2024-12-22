@@ -1,0 +1,235 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative; /* Required to stack elements correctly */
+}
+
+/* Full-screen video setup */
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire screen */
+    z-index: -1; /* Sends the video behind the content */
+}
+
+/* Full-screen container to center the content */
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensures that content stays on top of video */
+    z-index: 1;
+}
+
+/* Content styling */
+.content-container {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background */
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation on page load */
+}
+
+/* Heading */
+h1 {
+    font-size: 2.8rem;
+    color: #ff6347; /* Tomato color */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+/* Description text */
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Start listening button */
+.btn {
+    background-color: #ff6347;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease-out forwards; /* Button bounce-in animation */
+}
+
+.btn:hover {
+    background-color: #ff4500; /* Darker red for hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+/* Button disabled state */
+.btn-disabled {
+    background-color: #cccccc; /* Light gray */
+    cursor: not-allowed;
+    transform: none; /* No scaling */
+    box-shadow: none; /* Remove shadow */
+}
+
+/* Status text */
+.status {
+    font-size: 1.2rem;
+    color: #ffeb3b; /* Yellow for status updates */
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Textarea for voice output */
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #ff6347;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #ff6347;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 90%;
+    }
+}
+
+/* Styling for the download button */
+.download-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 99, 71, 0.7); /* Tomato color with transparency */
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure the download button stays on top */
+}
+
+.download-btn:hover {
+    background-color: rgba(255, 99, 71, 1); /* Solid color on hover */
+}
+
+.download-icon {
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover .download-icon {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
